@@ -1,6 +1,6 @@
 const User = require ('../model/model.user');
 
-//addUser pour ajouter unnouveau utilisateur.
+//addUser pour ajouter un nouveau utilisateur.
 module.exports.addUser = (req,res)=>{
     const user = new User(req.body);
     user.save((err,user)=>{
@@ -9,7 +9,7 @@ module.exports.addUser = (req,res)=>{
     });
 }
 
-//getUser pour voir l'esnsemble des utilisateurs ajoutés.
+//getUsers pour voir l'esnsemble des utilisateurs ajoutés.
 module.exports.getUsers = (req,res)=>{
     User.find((err,user)=>{
         (err)? res.status(400).json({error:err}):

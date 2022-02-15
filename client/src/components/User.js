@@ -14,7 +14,6 @@ function User() {
                     <Routes>
                         <Route path="/" exact element={<Accueil/>}/>
                         <Route path="/Edit/:id" exact element={<Edit/>}/>
-
                    </Routes>
                 </Router>
             </div>

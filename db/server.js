@@ -15,5 +15,10 @@ var bodyParser = require('body-parser')
 app.use(cors())
 
 app.use(bodyParser.json())
+
 app.use('/api', require('./routes/user.routes') )
-app.listen(process.env.PORT, ()=>console.log(`connected on port ${process.env.PORT}`))
+
+app.listen(
+    process.env.PORT, 
+    ()=>console.log(`connected on port ${process.env.PORT}`)
+)

@@ -7,17 +7,15 @@ import { deleteUser } from './api';
 import { useNavigate, Link } from 'react-router-dom';
 
 
-
-
-function HundleUser() {
+function HandleUser() {
 
     let navigate = useNavigate()
 
-//Cette variable va nous permettre de sticker les données recuperées.
+//Cette variable va nous permettre de stocker les données recuperées.
     const [userlist,SetUserlist] = useState([])
 
 //Ici nous avons la recuperation des données et l'affectation de
-// ces dernieres dans notre variable userlist grace ao hooks useState
+// ces dernieres dans notre variable userlist grace au hooks useState
     const fetchData = async()=>{
         const result = await axios('http://localhost:8000/api/all')
         SetUserlist(result.data)
@@ -45,8 +43,15 @@ function HundleUser() {
             <thead>
                 <tr>
                 <th scope="col">#</th>
+                <th scope="col">Prenom</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Age</th>
+                <th scope="col">Sexe</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Niveau</th>
+                <th scope="col">Diplome</th>
                 <th scope="col">Éditer</th>
                 <th scope="col">Supprimer</th>
                 </tr>
@@ -56,8 +61,16 @@ function HundleUser() {
             {userlist.map((user,index)=>(
                 <tr key={index}>
                     <th scope="row">{user._id}</th>
-                    <td>{user.name}</td>
+                    <td>{user.prenom}</td>
+                    <td>{user.nom}</td>
                     <td>{user.age}</td>
+                    <td>{user.sexe}</td>
+                    <td>{user.numero_telephone}</td>
+                    <td>{user.adresse}</td>
+                    <td>{user.email}</td>
+                    <td>{user.niveau_detude}</td>
+                    <td>{user.diplome_souhaite}</td>
+
                    {/*  <td>Masculin</td>
                     <td>---</td>
                     <td>11</td>
@@ -87,4 +100,5 @@ function HundleUser() {
      );
 }
 
-export default HundleUser;
+
+export default HandleUser;
